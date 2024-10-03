@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>หน้าแรก</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #00796b;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 40px;
+        }
+        .menu-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #00796b;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            height: 150px;
+            font-size: 1.2em;
+        }
+        .menu-item:hover {
+            background-color: #004d40;
+            transform: translateY(-2px);
+        }
+        .menu-item img {
+            width: 40px;
+            margin-right: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>หน้าแรก</h1>
+</header>
+
+<div class="menu">
+    <a href="basichtml.html" class="menu-item">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/source-code.png" alt="คำสั่ง HTML">
+        คำสั่ง HTML เบื้องต้น
+    </a>
+    <a href="currency_convert.html" class="menu-item">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/exchange.png" alt="แปลงสกุลเงิน">
+        แปลงสกุลเงิน
+    </a>
+    <a href="Guess the Number Game.html" class="menu-item">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/game-controller.png" alt="เกม">
+        เกม
+    </a>
+    <a href="calculator.html" class="menu-item">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/calculator.png" alt="เครื่องคิดเลข">
+        เครื่องคิดเลข
+    </a>
+</div>
+
+</body>
+</html>

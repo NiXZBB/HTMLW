@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML เบื้องต้น</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex; /* ใช้ Flexbox */
+            flex-direction: column; /* แนวตั้ง */
+            align-items: center; /* จัดกึ่งกลางในแนวนอน */
+            justify-content: center; /* จัดกึ่งกลางในแนวตั้ง */
+            height: 100vh; /* ความสูงเต็มหน้าจอ */
+        }
+        header {
+            background-color: #00796b;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%; /* ให้ header ขยายเต็มหน้าจอ */
+            position: absolute; /* เพื่อให้ header อยู่ด้านบน */
+            top: 0;
+        }
+        h1 {
+            margin: 0;
+        }
+        .menu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+        .menu-item {
+            background-color: #00796b;
+            color: white;
+            padding: 15px;
+            margin: 10px;
+            width: 300px;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .menu-item:hover {
+            background-color: #004d40;
+        }
+        .menu-item img {
+            width: 30px;
+            margin-right: 10px;
+        }
+        .back-button {
+            background-color: #cfd8dc;
+            color: #333;
+            padding: 10px 20px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .back-button:hover {
+            background-color: #b0bec5;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>HTML เบื้องต้น</h1>
+</header>
+
+<div class="menu">
+    <a href="Bod 1.html" class="menu-item">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/document.png" alt="ไอคอนโครงสร้าง">
+        บทที่ 1 : โครงสร้าง HTML
+    </a>
+    <a href="Bod 2.html" class="menu-item">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/source-code.png" alt="ไอคอนคำสั่ง">
+        บทที่ 2 : คำสั่ง HTML
+    </a>
+    <a href="bod 3.html" class="menu-item">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/image.png" alt="ไอคอนภาพ">
+        บทที่ 3 : ใส่ภาพและลิงก์
+    </a>
+    <a href="bod 4.html" class="menu-item">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/table.png" alt="ไอคอนตาราง">
+        บทที่ 4 : การสร้างตาราง
+    </a>
+</div>
+
+<a href="Allwork.html" class="back-button">กลับไปหน้าหลัก</a>
+
+</body>
+</html>

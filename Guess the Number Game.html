@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เกมทายหมายเลข</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border: 2px solid #00796b;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #00796b;
+        }
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            width: 50px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #00796b;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 5px; /* เพิ่ม margin เพื่อให้ปุ่มไม่ติดกัน */
+        }
+        button:hover {
+            background-color: #004d40;
+        }
+        p {
+            font-size: 18px;
+            color: #333;
+        }
+        .scoreboard {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>เกมทายหมายเลข</h1>
+    <p>ทายหมายเลขระหว่าง 1 ถึง 100</p>
+    <input type="number" id="guess" placeholder="หมายเลขของคุณ" />
+    <button onclick="checkGuess()">ทาย</button>
+    <p id="result"></p>
+    <button onclick="resetGame()">เริ่มใหม่</button>
+    <button onclick="goToHome()">กลับไปหน้าหลัก</button> <!-- ปุ่มกลับไปหน้าหลัก -->
+
+    <div class="scoreboard">
+        <p id="scoreboard">จำนวนการเล่น: 0 | จำนวนการทาย: 0</p>
+    </div>
+</div>
+
+<script>
+    let randomNumber;
+    let attempts;
+    let totalGames = 0;
+    let totalAttempts = 0;
+
+    function startGame() {
+        randomNumber = Math.floor(Math.random() * 100) + 1;
+        attempts = 0;
+    }
+
+    function checkGuess() {
+        const guess = parseInt(document.getElementById('guess').value);
+        const result = document.getElementById('result');
+        attempts++;
+
+        if (guess < 1 || guess > 100 || isNaN(guess)) {
+            result.innerText = "กรุณาใส่หมายเลขระหว่าง 1 ถึง 100";
+            return;
+        }
+
+        totalAttempts++; // เพิ่มจำนวนการทาย
+        if (guess === randomNumber) {
+            totalGames++; // เพิ่มจำนวนการเล่น
+            result.innerText = `ถูกต้อง! คุณใช้การทาย ${attempts} ครั้ง`;
+            updateScoreboard();
+        } else if (guess < randomNumber) {
+            result.innerText = "หมายเลขที่สูงขึ้น!";
+        } else {
+            result.innerText = "หมายเลขที่ต่ำลง!";
+        }
+    }
+
+    function resetGame() {
+        startGame();
+        document.getElementById('guess').value = '';
+        document.getElementById('result').innerText = '';
+    }
+
+    function updateScoreboard() {
+        document.getElementById('scoreboard').innerText = `จำนวนการเล่น: ${totalGames} | จำนวนการทาย: ${totalAttempts}`;
+    }
+
+    function goToHome() {
+        window.location.href = "Allwork.html"; 
+    }
+
+    
+    startGame();
+</script>
+
+</body>
+</html>

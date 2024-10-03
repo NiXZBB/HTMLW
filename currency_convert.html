@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ตัวแปลงค่าสกุลเงิน USD/THB</title>
+    <style>
+        body {
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            margin: 0; 
+            font-family: 'Arial', sans-serif; 
+            background-color: #e0f7fa; 
+        }
+        .container {
+            text-align: center; 
+            padding: 30px; 
+            border: 1px solid #ccc; 
+            background: #ffffff; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); 
+            max-width: 400px; 
+            position: relative; 
+        }
+        h1 {
+            margin-bottom: 20px; 
+            color: #00796b; 
+        }
+        input, select {
+            padding: 10px; 
+            margin: 10px 0; 
+            border: 1px solid #ccc; 
+            border-radius: 6px; 
+            width: calc(100% - 22px); 
+            font-size: 16px; 
+        }
+        button {
+            padding: 10px 20px; 
+            background-color: #00796b; 
+            color: white; 
+            border: none; 
+            border-radius: 6px; 
+            font-size: 18px; 
+            cursor: pointer; 
+            transition: background-color 0.3s ease, transform 0.2s; 
+        }
+        button:hover {
+            background-color: #004d40; 
+            transform: scale(1.05); 
+        }
+        .secondary-button {
+            padding: 8px 16px; 
+            background-color: #cfd8dc; 
+            color: #333; 
+            border: none; 
+            border-radius: 6px; 
+            font-size: 14px; 
+            margin-top: 10px; 
+            cursor: pointer; 
+            transition: background-color 0.3s ease; 
+        }
+        .secondary-button:hover {
+            background-color: #b0bec5; 
+        }
+        p {
+            margin-top: 20px; 
+            font-size: 24px; 
+            color: #333; 
+            font-weight: bold; 
+        }
+        .loader {
+            display: none; 
+            border: 8px solid #f3f3f3; 
+            border-top: 8px solid #00796b; 
+            border-radius: 50%; 
+            width: 50px; 
+            height: 50px; 
+            animation: spin 1s linear infinite; 
+            position: absolute; 
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .dev-info {
+            display: none; 
+            margin-top: 20px; 
+            font-size: 16px; 
+            color: #00796b; 
+        }
+        .close-btn {
+            margin-top: 10px; 
+            background-color: #e57373; 
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>แปลงค่าเงิน</h1>
+    <input type="number" id="amount" step="0.01" placeholder="กรุณากรอกจำนวนเงินที่ต้องการแปลง (ใส่ทศนิยมได้)" />
+    <select id="currency">
+        <option value="usd">USD</option>
+        <option value="thb">THB</option>
+    </select>
+    <button onclick="convert()">แปลงค่าเงิน</button>
+    <div class="loader" id="loader"></div>
+    <p id="result"></p>
+
+    <button class="secondary-button" onclick="toggleDevInfo()">คลิกเพื่อแสดงชื่อผู้พัฒนา</button>
+    <div id="devInfo" class="dev-info">
+        พัฒนาโดย นาย ศุภชัย แซ่เฮง<br>ติดต่อ: supachai20g@gmail.com
+        <button class="close-btn" onclick="toggleDevInfo()">ปิด</button>
+    </div>
+
+    <!-- ปุ่มกลับไปหน้าหลัก -->
+    <button class="secondary-button" onclick="window.location.href='allwork.html'">กลับไปหน้าหลัก</button>
+</div>
+
+<script>
+    function convert() {
+        const amount = parseFloat(document.getElementById('amount').value);
+        const currency = document.getElementById('currency').value;
+        let result;
+
+        const loader = document.getElementById('loader');
+        loader.style.display = 'block';
+
+        if (isNaN(amount) || amount <= 0) {
+            document.getElementById('result').innerText = 'กรุณาใส่จำนวนเงินที่ถูกต้อง';
+            loader.style.display = 'none'; 
+            return;
+        }
+
+        setTimeout(() => {
+            if (currency === 'usd') {
+                result = amount * 34; 
+                document.getElementById('result').innerText = `${amount.toFixed(2)} USD = ${result.toFixed(2)} THB`;
+            } else {
+                result = amount / 34; 
+                document.getElementById('result').innerText = `${amount.toFixed(2)} THB = ${result.toFixed(2)} USD`;
+            }
+            loader.style.display = 'none'; 
+        }, 2000); 
+    }
+
+    function toggleDevInfo() {
+        const devInfo = document.getElementById('devInfo');
+        devInfo.style.display = devInfo.style.display === 'block' ? 'none' : 'block';
+    }
+</script>
+
+</body>
+</html>

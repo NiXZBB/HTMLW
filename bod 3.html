@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>บทที่ 3 : ใส่ภาพและลิงก์</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #00796b;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+        }
+        h2 {
+            color: #00796b;
+        }
+        .content {
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        p {
+            line-height: 1.6;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .back-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #00796b;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            width: 150px;
+            transition: background-color 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #004d40;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.8em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>บทที่ 3 : ใส่ภาพและลิงก์</h1>
+</header>
+
+<div class="content">
+    <h2>3.1 การใส่ภาพใน HTML</h2>
+    <p>การใส่ภาพใน HTML สามารถทำได้ง่าย ๆ โดยใช้แท็ก <code>&lt;img&gt;</code>. คำสั่งนี้มีแอตทริบิวต์ที่สำคัญดังนี้:</p>
+
+    <ul>
+        <li><b>src</b>: กำหนดที่อยู่ของภาพ เช่นไฟล์ในเครื่องหรือ URL ภายนอก</li>
+        <li><b>alt</b>: กำหนดข้อความที่จะแสดงแทนหากไม่สามารถโหลดภาพได้</li>
+        <li><b>width</b> และ <b>height</b>: กำหนดขนาดของภาพ (ไม่จำเป็นต้องระบุ)</li>
+    </ul>
+
+    <p>ตัวอย่างการใส่ภาพใน HTML:</p>
+    <pre>
+        <code>
+            &lt;img src="image.jpg" alt="รูปภาพตัวอย่าง" width="500"&gt;
+        </code>
+    </pre>
+    <p>ในตัวอย่างนี้ จะมีการแสดงรูปภาพที่มีชื่อว่า <code>image.jpg</code> และกำหนดขนาดความกว้าง 500px.</p>
+
+    <h2>3.2 การสร้างลิงก์ใน HTML</h2>
+    <p>การสร้างลิงก์ใน HTML ทำได้โดยใช้แท็ก <code>&lt;a&gt;</code>. คำสั่งนี้มีแอตทริบิวต์ที่สำคัญคือ:</p>
+
+    <ul>
+        <li><b>href</b>: กำหนด URL หรือไฟล์ที่ต้องการเชื่อมโยง</li>
+        <li><b>target</b>: กำหนดว่าลิงก์จะเปิดในหน้าต่างไหน (เช่น <code>_blank</code> สำหรับเปิดหน้าต่างใหม่)</li>
+    </ul>
+
+    <p>ตัวอย่างการสร้างลิงก์ใน HTML:</p>
+    <pre>
+        <code>
+            &lt;a href="https://www.example.com" target="_blank"&gt;ไปที่ Example.com&lt;/a&gt;
+        </code>
+    </pre>
+    <p>ในตัวอย่างนี้ ผู้ใช้สามารถคลิกเพื่อเปิดหน้าเว็บ <code>https://www.example.com</code> ในหน้าต่างใหม่ได้.</p>
+
+    <h2>3.3 การทำลิงก์ในรูปภาพ</h2>
+    <p>คุณสามารถสร้างลิงก์ที่คลิกได้จากภาพได้โดยการซ้อนแท็ก <code>&lt;a&gt;</code> ไว้รอบแท็ก <code>&lt;img&gt;</code>:</p>
+    <pre>
+        <code>
+            &lt;a href="https://www.example.com"&gt;
+                &lt;img src="image.jpg" alt="ลิงก์รูปภาพ" width="300"&gt;
+            &lt;/a&gt;
+        </code>
+    </pre>
+    <p>เมื่อผู้ใช้คลิกที่รูปภาพ ก็จะนำไปยัง URL ที่กำหนดไว้ใน <code>href</code>.</p>
+</div>
+
+<!-- ปุ่มย้อนไปหน้าแรก -->
+<a href="basichtml.HTML" class="back-button">กลับไปหน้าแรก</a>
+
+<!-- เครดิตและอ้างอิง -->
+<footer>
+    <p>สร้างโดย: [ศุภชัย แซ่เฮง]</p>
+    <p>ข้อมูลจาก: <a href="http://www.krukikz.com/index.php?option=com_content&view=article&id=119&Itemid=152" target="_blank">Krukikz</a></p>
+</footer>
+
+</body>
+</html>

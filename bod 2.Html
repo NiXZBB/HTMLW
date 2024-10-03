@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>บทที่ 2 : คำสั่ง HTML เบื้องต้น</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #00796b;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        h2 {
+            color: #00796b;
+            font-size: 1.8em;
+        }
+        .content {
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        p {
+            line-height: 1.6;
+            font-size: 1.2em;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 1.1em;
+        }
+        .back-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #00796b;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            width: 150px;
+            transition: background-color 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #004d40;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.8em;
+            color: #777;
+        }
+        .highlight {
+            color: #d32f2f; /* สีแดง */
+            font-weight: bold;
+        }
+        .centered {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>บทที่ 2 : คำสั่ง HTML เบื้องต้น</h1>
+</header>
+
+<div class="content">
+    <h2>2.1 คำสั่ง HTML พื้นฐาน</h2>
+    <p>คำสั่ง HTML เบื้องต้นที่มักจะใช้ในการสร้างหน้าเว็บมีดังนี้:</p>
+
+    <h3>1. การใช้แท็กตัวอักษร (Text Formatting)</h3>
+    <pre>
+        <code>
+            &lt;b&gt;ข้อความตัวหนา&lt;/b&gt;
+            &lt;i&gt;ข้อความตัวเอียง&lt;/i&gt;
+            &lt;u&gt;ข้อความขีดเส้นใต้&lt;/u&gt;
+            &lt;br&gt;  <!-- ขึ้นบรรทัดใหม่ -->
+            &lt;p&gt;ข้อความในย่อหน้า&lt;/p&gt;
+        </code>
+    </pre>
+    <p>ตัวอย่างการใช้งาน:</p>
+    <pre>
+        <code>
+            &lt;p&gt;นี่คือ &lt;b&gt;ข้อความตัวหนา&lt;/b&gt; และ &lt;i&gt;ข้อความตัวเอียง&lt;/i&gt;.&lt;/p&gt;
+        </code>
+    </pre>
+
+    <h3>2. การเปลี่ยนแปลงรูปแบบตัวอักษร (Font Styling)</h3>
+    <p>คุณสามารถกำหนดสี ขนาด และการจัดตำแหน่งตัวอักษรได้ดังนี้:</p>
+    <pre>
+        <code>
+            &lt;p style="color: blue; font-size: 20px;"&gt;
+                ข้อความสีฟ้า ขนาด 20 พิกเซล
+            &lt;/p&gt;
+
+            &lt;p style="text-align: center; font-size: 24px;"&gt;
+                ข้อความที่จัดให้อยู่ตรงกลาง
+            &lt;/p&gt;
+        </code>
+    </pre>
+    <p class="highlight centered">ตัวอย่าง: ข้อความนี้มีสีแดงและจัดอยู่ตรงกลาง</p>
+
+    <h3>3. การใช้ลิงก์ (Hyperlink)</h3>
+    <pre>
+        <code>
+            &lt;a href="https://www.example.com"&gt;คลิกที่นี่เพื่อไปยัง Example.com&lt;/a&gt;
+        </code>
+    </pre>
+    <p>ตัวอย่างการใช้งาน:</p>
+    <pre>
+        <code>
+            &lt;p&gt;สามารถ &lt;a href="https://www.example.com"&gt;คลิกที่นี่&lt;/a&gt; เพื่อเยี่ยมชมเว็บไซต์ตัวอย่าง.&lt;/p&gt;
+        </code>
+    </pre>
+
+    <h3>4. การแทรกรูปภาพ (Image)</h3>
+    <pre>
+        <code>
+            &lt;img src="image.jpg" alt="คำอธิบายรูปภาพ"&gt;
+        </code>
+    </pre>
+
+    <h3>5. รายการไม่เรียงลำดับ (Unordered List)</h3>
+    <pre>
+        <code>
+            &lt;ul&gt;
+                &lt;li&gt;รายการที่ 1&lt;/li&gt;
+                &lt;li&gt;รายการที่ 2&lt;/li&gt;
+                &lt;li&gt;รายการที่ 3&lt;/li&gt;
+            &lt;/ul&gt;
+        </code>
+    </pre>
+
+    <h2>2.2 การเชื่อมโยงระหว่างหน้า HTML</h2>
+    <p>คำสั่งลิงก์สามารถใช้เพื่อเชื่อมโยงไปยังหน้าอื่นภายในเว็บไซต์ เช่น:</p>
+    <pre>
+        <code>
+            &lt;a href="บทที่ 1.html"&gt;ย้อนกลับไปบทที่ 1&lt;/a&gt;
+        </code>
+    </pre>
+    <p>คุณสามารถใช้คำสั่งนี้เพื่อเชื่อมโยงหน้าต่าง ๆ ในเว็บไซต์ของคุณได้ง่าย ๆ.</p>
+</div>
+
+<!-- ปุ่มย้อนไปหน้าแรก -->
+<a href="basichtml.HTML" class="back-button">กลับไปหน้าแรก</a>
+
+<footer>
+    <p>สร้างโดย: [ศุภชัย แซ่เฮง]</p>
+    <p>ข้อมูลจาก: <a href="http://www.krukikz.com/index.php?option=com_content&view=article&id=119&Itemid=152" target="_blank">Krukikz</a></p>
+</footer>
+
+</body>
+</html>

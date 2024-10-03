@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เครื่องคิดเลข</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e0f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .calculator {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 400px; /* ปรับความกว้าง */
+        }
+        .display {
+            background-color: #cfd8dc;
+            border: none;
+            border-radius: 5px;
+            padding: 20px;
+            font-size: 32px; /* ขยายขนาดตัวอักษร */
+            text-align: right;
+            width: calc(100% - 40px); /* ลดขนาดให้พอดีกับกล่อง */
+            margin-bottom: 10px;
+            box-sizing: border-box; /* ทำให้ padding ไม่ทำให้กล่องล้น */
+        }
+        .button {
+            width: 80px;
+            height: 80px;
+            border-radius: 5px;
+            border: none;
+            margin: 5px;
+            font-size: 24px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            background-color: #f1f1f1; /* เปลี่ยนสีพื้นหลังปุ่ม */
+        }
+        .button:hover {
+            background-color: #b0bec5;
+        }
+        .operator {
+            background-color: #00796b;
+            color: white;
+        }
+        .operator:hover {
+            background-color: #004d40;
+        }
+        .equal {
+            background-color: #ffb300;
+            color: white;
+        }
+        .equal:hover {
+            background-color: #ff8f00;
+        }
+        .clear {
+            background-color: #e57373;
+            color: white;
+        }
+        .clear:hover {
+            background-color: #ef5350;
+        }
+        /* จัดเรียงปุ่มให้เหมือนในคลิป */
+        .button-row {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="calculator">
+    <input type="text" class="display" id="display" disabled>
+    <div class="button-row">
+        <button class="button" onclick="appendNumber('7')">7</button>
+        <button class="button" onclick="appendNumber('8')">8</button>
+        <button class="button" onclick="appendNumber('9')">9</button>
+        <button class="button operator" onclick="setOperation('/')">÷</button>
+    </div>
+    <div class="button-row">
+        <button class="button" onclick="appendNumber('4')">4</button>
+        <button class="button" onclick="appendNumber('5')">5</button>
+        <button class="button" onclick="appendNumber('6')">6</button>
+        <button class="button operator" onclick="setOperation('*')">×</button>
+    </div>
+    <div class="button-row">
+        <button class="button" onclick="appendNumber('1')">1</button>
+        <button class="button" onclick="appendNumber('2')">2</button>
+        <button class="button" onclick="appendNumber('3')">3</button>
+        <button class="button operator" onclick="setOperation('-')">−</button>
+    </div>
+    <div class="button-row">
+        <button class="button" onclick="appendNumber('0')">0</button>
+        <button class="button clear" onclick="clearDisplay()">C</button>
+        <button class="button equal" onclick="calculateResult()">=</button>
+        <button class="button operator" onclick="setOperation('+')">+</button>
+    </div>
+</div>
+
+<script>
+    let currentInput = '';
+    let previousInput = '';
+    let operation = '';
+
+    function appendNumber(number) {
+        currentInput += number;
+        updateDisplay();
+    }
+
+    function setOperation(op) {
+        if (currentInput === '') return;
+        if (previousInput !== '') {
+            calculateResult();
+        }
+        operation = op;
+        previousInput = currentInput;
+        currentInput = '';
+    }
+
+    function calculateResult() {
+        let result;
+        const prev = parseFloat(previousInput);
+        const curr = parseFloat(currentInput);
+        if (isNaN(prev) || isNaN(curr)) return;
+
+        switch (operation) {
+            case '+':
+                result = prev + curr;
+                break;
+            case '-':
+                result = prev - curr;
+                break;
+            case '*':
+                result = prev * curr;
+                break;
+            case '/':
+                result = prev / curr;
+                break;
+            default:
+                return;
+        }
+        currentInput = result;
+        operation = '';
+        previousInput = '';
+        updateDisplay();
+    }
+
+    function clearDisplay() {
+        currentInput = '';
+        previousInput = '';
+        operation = '';
+        updateDisplay();
+    }
+
+    function updateDisplay() {
+        document.getElementById('display').value = currentInput;
+    }
+</script>
+
+</body>
+</html>
